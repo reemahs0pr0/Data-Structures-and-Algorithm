@@ -18,10 +18,10 @@ class Node:
             return self.nex.get(index, i=i)
         
     def insert(self, val, index):
-        linkedList.get(index).prev = Node(val, linkedList.get(index-1), 
-                                          linkedList.get(index))
-        linkedList.get(index-1).nex = Node(val, linkedList.get(index-1), 
-                                           linkedList.get(index))
+        self.get(index).prev = Node(val, self.get(index-1), 
+                                          self.get(index))
+        self.get(index-1).nex = Node(val, self.get(index-1), 
+                                           self.get(index))
         
     def getLength(self, count=1):
         if self.nex:
@@ -30,8 +30,8 @@ class Node:
         return count
     
     def remove(self, index):
-        linkedList.get(index-1).nex = linkedList.get(index+1)
-        linkedList.get(index).prev = linkedList.get(index-1)
+        self.get(index-1).nex = self.get(index+1)
+        self.get(index).prev = self.get(index-1)
         
 
 linkedList = Node(1)
