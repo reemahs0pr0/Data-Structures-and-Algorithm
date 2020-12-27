@@ -1,10 +1,5 @@
 import random
 
-arr = []
-for i in range(10):
-    arr.append(random.randint(-99,99))
-print(arr)
-
 def quicksort(arr, l, r):
     if l >= r:
         return
@@ -27,5 +22,10 @@ def partition(arr, l, r):
     arr[i+1] = temp
     return i+1
 
-quicksort(arr, 0, len(arr) - 1)
-print(arr)
+if __name__ == '__main__':
+    arr = []
+    for i in range(10):
+        arr.append(random.randint(-99,99))
+    print(arr)
+    quicksort(arr, 0, len(arr) - 1)
+    print(arr)
