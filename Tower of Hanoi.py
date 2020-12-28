@@ -14,7 +14,7 @@ A = []
 B =[]
 C = []
 step = 0
-pegs = 8
+pegs = 3
 
 for i in range(pegs, 0, -1):
     A.append(i)
