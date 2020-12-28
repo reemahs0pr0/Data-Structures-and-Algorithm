@@ -14,7 +14,6 @@ def mergesort(arr):
 
 def merge(left, right):
     arr = []
-    
     while len(left) != 0 and len(right) != 0:
         if left[0] < right[0]:
             arr.append(left[0])
