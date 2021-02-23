@@ -47,10 +47,20 @@ linkedList.add(10)
 linkedList.insert(99, 5)
 linkedList.insert(69, 3)
 linkedList.insert(55, 10)
-linkedList.remove(3)
-linkedList.remove(5)
-linkedList.remove(8)
-print("Length: " + str(linkedList.getLength()))
+# linkedList.remove(3)
+# linkedList.remove(5)
+# linkedList.remove(8)
+# print("Length: " + str(linkedList.getLength()))
 
-for i in range(linkedList.getLength()):
-    print(linkedList.get(i).val)
+# for i in range(linkedList.getLength()):
+    # print(linkedList.get(i).val, end="")
+
+def print_backwards(node, arr=[]):
+    arr.append(node.val)
+    if node.nex:
+        print_backwards(node.nex, arr)
+    else:
+        for i in range(len(arr)-1, -1, -1):
+            print(arr[i], end=", ")
+
+print_backwards(linkedList)
