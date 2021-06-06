@@ -1,11 +1,11 @@
 arr = [-2, 3, 4, 7, 8, 9, 11, 13]
-target = 8
+target = 7
 left = 0
 right = len(arr) - 1
 while (left <= right):
     middle = int((left + right) / 2)
     if (arr[middle] == target):
-        print(middle)
+        print("Array index: " + str(middle))
         break
     elif (arr[middle] < target):
         left = middle + 1
