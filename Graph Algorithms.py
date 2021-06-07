@@ -2,6 +2,7 @@ import collections
 
 def dfs(graph, start, visited = None):
     if visited is None:
+        print("DFS: ", end="")
         visited = set()
     visited.add(start)
     print(start, end=" ")
@@ -40,5 +41,4 @@ graph = {
 }
 
 bfs(graph, 6)
-print("DFS: ", end="")
 dfs(graph, 6)
