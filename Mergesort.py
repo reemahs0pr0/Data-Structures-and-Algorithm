@@ -21,7 +21,6 @@ def merge(left, right):
         else:
             arr.append(right[0])
             right.remove(right[0])
-        
     if len(left) == 0:
         arr = arr + right
     else:
