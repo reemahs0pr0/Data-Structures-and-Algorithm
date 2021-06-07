@@ -18,10 +18,8 @@ class Node:
             return self.nex.get(index, i=i)
         
     def insert(self, val, index):
-        self.get(index).prev = Node(val, self.get(index-1), 
-                                          self.get(index))
-        self.get(index-1).nex = Node(val, self.get(index-1), 
-                                           self.get(index))
+        self.get(index).prev = Node(val, self.get(index-1), self.get(index))
+        self.get(index-1).nex = self.get(index).prev
         
     def getLength(self, count=1):
         if self.nex:
@@ -32,35 +30,36 @@ class Node:
     def remove(self, index):
         self.get(index-1).nex = self.get(index+1)
         self.get(index).prev = self.get(index-1)
-        
+    
+def print_linked_list(linkedList):
+    for i in range(linkedList.getLength()):
+        print(linkedList.get(i).val, end=", " if i != linkedList.getLength()-1 else "")
+    print()
+
+def print_linked_list_backwards(node, arr=[]):
+    arr.append(node.val)
+    if node.nex:
+        print_linked_list_backwards(node.nex, arr)
+    else:
+        for i in range(len(arr)-1, -1, -1):
+            print(arr[i], end=", " if i != 0 else "")    
 
 linkedList = Node(1)
 linkedList.add(2)
 linkedList.add(3)
-linkedList.add(4)
-linkedList.add(5)
-linkedList.add(6)
-linkedList.add(7)
-linkedList.add(8)
+linkedList.add(92)
+linkedList.add(54)
 linkedList.add(9)
 linkedList.add(10)
+print_linked_list(linkedList)
 linkedList.insert(99, 5)
+print_linked_list(linkedList)
 linkedList.insert(69, 3)
-linkedList.insert(55, 10)
-# linkedList.remove(3)
-# linkedList.remove(5)
-# linkedList.remove(8)
-# print("Length: " + str(linkedList.getLength()))
+print_linked_list(linkedList)
+linkedList.remove(3)
+print_linked_list(linkedList)
+linkedList.remove(5)
+print_linked_list(linkedList)
+print("Length: " + str(linkedList.getLength()))
 
-# for i in range(linkedList.getLength()):
-    # print(linkedList.get(i).val, end="")
-
-def print_backwards(node, arr=[]):
-    arr.append(node.val)
-    if node.nex:
-        print_backwards(node.nex, arr)
-    else:
-        for i in range(len(arr)-1, -1, -1):
-            print(arr[i], end=", ")
-
-print_backwards(linkedList)
+print_linked_list_backwards(linkedList)
