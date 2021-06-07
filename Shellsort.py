@@ -6,7 +6,6 @@ def shellsort(arr):
         for i in range(gap, len(arr)):
             temp = arr[i]
             j = i
-            
             while arr[j-gap] > temp and j >= gap:
                 arr[j] = arr[j-gap]
                 j = j - gap
